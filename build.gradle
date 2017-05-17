@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE'
+    }
+}
+
+group 'com.wpg.demo'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'springboot-demoGradle'
+    version = '1.0-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+
+    testCompile 'org.mockito:mockito-core:2.7.22'
+    testCompile 'org.assertj:assertj-core:3.7.0'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}
